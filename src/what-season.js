@@ -16,8 +16,8 @@ export default function getSeason(date) {
     return 'Unable to determine the time of year!';
   }
 
-  if(Object.prototype.toString.call(date) != "[object Date]" || typeof date !== 'object'){
-    throw new Error("Invalid date!");
+  if (Object.prototype.toString.call(date) !== '[object Date]' || typeof date !== 'object' || Object.keys(date).length > 0 || !(date instanceof Date)) {
+    throw new Error('Invalid date!');
   }
 
   let month;
