@@ -1,4 +1,4 @@
-import { NotImplementedError } from '../extensions/index.js';
+import { NotImplementedError } from "../extensions/index.js";
 
 /**
  * Given an array of domains, return the object with the appearances of the DNS.
@@ -25,25 +25,21 @@ import { NotImplementedError } from '../extensions/index.js';
 export default function getDNSStats(domains) {
   let dnsStats = {};
 
-let result=[];
+  let result = [];
 
+  for (let i = 0; i < domains.length; i++) {
+    result = domains[i].split(".").reverse();
+    let key = "";
+    for (let j = 0; j < result.length; j++) {
+      key = key + "." + result[j];
 
-for (let i=0; i<domains.length; i++) {
-	result=domains[i].split(".").reverse();
-  let key ="";
-	for (let j=0; j<result.length; j++){
-		key = key+"."+result[j];
-    
-		if (dnsStats[key] == true) {
-			dnsStats[key] += 1;
-		} else {
-			dnsStats[key]=1;
-		}
-		
-	}
+      if (dnsStats[key] == true) {
+        dnsStats[key] += 1;
+      } else {
+        dnsStats[key] = 1;
+      }
+    }
+  }
 
-}
-
-return dnsStats;
-  
+  return dnsStats;
 }
