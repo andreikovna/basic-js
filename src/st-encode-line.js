@@ -1,4 +1,4 @@
-import { NotImplementedError } from '../extensions/index.js';
+import { NotImplementedError } from "../extensions/index.js";
 
 /**
  * Given a string, return its encoding version.
@@ -12,21 +12,21 @@ import { NotImplementedError } from '../extensions/index.js';
  */
 export default function encodeLine(str) {
   let number = 0;
-  let symbol  = '';
-  let result = '';
+  let symbol = "";
+  let result = "";
   for (let i of str) {
-      if (i !== symbol && number) {
-        if (number == 1) {
-          result = result+''+symbol;
-        } else {
-          result=result+String(number)+ symbol
-        }
-          symbol = i;
-          number = 1;
+    if (i !== symbol && number) {
+      if (number == 1) {
+        result = result + "" + symbol;
       } else {
-          symbol = i;
-          number ++;
+        result = result + String(number) + symbol;
       }
+      symbol = i;
+      number = 1;
+    } else {
+      symbol = i;
+      number++;
+    }
   }
 
   if (number == 0) {
@@ -36,9 +36,9 @@ export default function encodeLine(str) {
   }
 
   if (number == 1) {
-    result = result+''+symbol;
+    result = result + "" + symbol;
   } else {
-    result = result+String(number) +symbol;
+    result = result + String(number) + symbol;
   }
 
   return result;

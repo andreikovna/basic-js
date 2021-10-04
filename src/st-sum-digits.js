@@ -1,4 +1,4 @@
-import { NotImplementedError } from '../extensions/index.js';
+import { NotImplementedError } from "../extensions/index.js";
 
 /**
  * Given a number, replace this number with
@@ -14,7 +14,9 @@ import { NotImplementedError } from '../extensions/index.js';
  */
 export default function getSumOfDigits(n) {
   while (n > 9) {
-    n = String(n).split('').reduce((x, y) => x + +y, 0);
-}
-return n;
+    n = String(n)
+      .split("")
+      .reduce((x, y) => x + +y, 0);
+  }
+  return n;
 }

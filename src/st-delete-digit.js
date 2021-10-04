@@ -1,4 +1,4 @@
-import { NotImplementedError } from '../extensions/index.js';
+import { NotImplementedError } from "../extensions/index.js";
 
 /**
  * Given some integer, find the maximal number you can obtain
@@ -12,15 +12,14 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  */
 export default function deleteDigit(n) {
- let result = n.toString();
+  let result = n.toString();
   let max = 0;
 
   for (let i = 0; i < result.length; i++) {
     if (i == 0) {
       max = +result.slice(1);
-    }
-    else {
-      let str = +(result.slice(0, i) + result.slice(i + 1))
+    } else {
+      let str = +(result.slice(0, i) + result.slice(i + 1));
       if (max < str) {
         max = str;
       }

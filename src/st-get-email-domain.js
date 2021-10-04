@@ -1,4 +1,4 @@
-import { NotImplementedError } from '../extensions/index.js';
+import { NotImplementedError } from "../extensions/index.js";
 
 /**
  * Given an email address, return it's domain.
@@ -11,6 +11,6 @@ import { NotImplementedError } from '../extensions/index.js';
  *
  */
 export default function getEmailDomain(email) {
-  let domain = email.split('@');
+  let domain = email.split("@");
   return domain[domain.length - 1];
 }

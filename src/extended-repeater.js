@@ -1,16 +1,16 @@
-import { NotImplementedError } from '../extensions/index.js';
+import { NotImplementedError } from "../extensions/index.js";
 
 /**
  * Create a repeating string based on the given parameters
- *  
+ *
  * @param {String} str string to repeat
- * @param {Object} options options object 
+ * @param {Object} options options object
  * @return {String} repeating string
- * 
+ *
  *
  * @example
- * 
- * repeater('STRING', { repeatTimes: 3, separator: '**', 
+ *
+ * repeater('STRING', { repeatTimes: 3, separator: '**',
  * addition: 'PLUS', additionRepeatTimes: 3, additionSeparator: '00' })
  * => 'STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS**STRINGPLUS00PLUS00PLUS'
  *
@@ -24,17 +24,17 @@ export default function repeater(str, options) {
   }
 
   let separator;
-  if  (options.separator !== undefined) {
+  if (options.separator !== undefined) {
     separator = String(options.separator);
   } else {
-    separator = '+';
+    separator = "+";
   }
 
   let addition;
-  if (options.addition !== undefined){
+  if (options.addition !== undefined) {
     addition = String(options.addition);
-  }  else {
-    addition = '';
+  } else {
+    addition = "";
   }
 
   let additionRepeatTimes;
@@ -48,18 +48,18 @@ export default function repeater(str, options) {
   if (options.additionSeparator !== undefined) {
     additionSeparator = String(options.additionSeparator);
   } else {
-    additionSeparator = '|';
+    additionSeparator = "|";
   }
-  
-  let result = '';
-  
+
+  let result = "";
+
   for (let i = 0; i < repeatTimes; i++) {
-      result = result + String(str);
-      for (let j = 0; j < additionRepeatTimes; j++) {
-          result = result + addition;      
-          j < (additionRepeatTimes-1) ? result=result+additionSeparator : 0;
-      }
-      i < (repeatTimes - 1) ? result=result+separator : 0;
+    result = result + String(str);
+    for (let j = 0; j < additionRepeatTimes; j++) {
+      result = result + addition;
+      j < additionRepeatTimes - 1 ? (result = result + additionSeparator) : 0;
+    }
+    i < repeatTimes - 1 ? (result = result + separator) : 0;
   }
 
   return result;
